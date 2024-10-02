@@ -14,11 +14,11 @@ const Navbar = () => {
         break
       }
       case "eur":{
-        setCurrency({name:"eur" , symbol:"$"});
+        setCurrency({name:"eur" , symbol:"€"});
         break
       }
       case "inr":{
-        setCurrency({name:"inr" , symbol:"$"});
+        setCurrency({name:"inr" , symbol:"₹"});
         break
       }
       default : {
