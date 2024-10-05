@@ -37,10 +37,18 @@ const Home = () => {
                 displayCoin.slice(0,10).map((item )=>(
                   <div className="table-layout" key={item.id}>
                     <p>{item.market_cap_rank}</p>
+
                     <div>
                       <img src={item.image} alt={item.name + " image"}/>
                       <p>{item.name +"-"+ item.symbol}</p>
                     </div>
+
+                    <p>{currency.symbol}{item.current_price.toLocaleString()}</p>
+
+                    <p className={item.market_cap_change_percentage_24h>0?"green":"red"}>
+                    {Math.floor( item.market_cap_change_percentage_24h*100)/100}</p>
+
+                    <p style={{textAlign:"right"}}>{currency.symbol}{item.market_cap.toLocaleString()}</p>
 
                   </div>
                 ) )
