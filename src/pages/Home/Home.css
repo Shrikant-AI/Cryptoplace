@@ -111,3 +111,15 @@
         display:none;
     }
 }
+
+@media (max-width:500px){
+    .table-layout div img{
+        width: 25px;
+    }
+    .table-layout{
+        font-size: 13px;
+    }
+    .hero form input{
+        width:100px;
+    }
+}
