@@ -57,3 +57,30 @@
 .navbar button img{
     width: 13px;
 }
+
+@media (max-widht:900px){
+    .navbar{
+        padding: 20px 8%;
+    }
+    .navbar buttom{
+        gap:8px;
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+    .navbar ul{
+        display: none;
+    }
+}
+
+@media (max-width:768px) {
+    .navbar{
+        padding: 20px 5%;
+    }
+    .navbar ul{
+        display: none;
+    }
+    .navbar button img{
+        width: 12px;
+    }
+    
+}

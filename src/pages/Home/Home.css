@@ -74,6 +74,10 @@
     border-bottom: 1px solid #3c3c3c;
 }
 
+.market-cap{
+    text-align: right;
+}
+
 .table-layout:last-child{
     border: none;
 }
@@ -96,4 +100,14 @@
 .table-layout .red{
     text-align: center;
     color:#ff4646;
+}
+
+@media (max-width:768px){
+    
+    .table-layout{
+        grid-template-columns: 0.5fr 3fr 1fr 1fr;
+        }
+    .market-cap{
+        display:none;
+    }
 }
