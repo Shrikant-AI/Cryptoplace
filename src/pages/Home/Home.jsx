@@ -2,19 +2,23 @@ import React, { useContext, useEffect, useState } from 'react'
 import './Home.css'
 import { CoinContext } from '../../context/CoinContext'
 import { Link } from 'react-router-dom'
+import {InfinitySpin} from 'react-loader-spinner'
 
 const Home = () => {
 
   const {allCoins , currency} = useContext(CoinContext);
-  const [displayCoin , setDisplayCoin] = useState([])
-  const [input , setInput] = useState('')
+  const [displayCoin , setDisplayCoin] = useState([]);
+  const [input , setInput] = useState('');
+  const [loading , setLoading] = useState(true);
 
 
   useEffect(() => {
     console.log('allCoin:', allCoins); 
     setDisplayCoin(allCoins || []);
-  }, [allCoins]);
-  
+    setLoading(false) 
+  }, [allCoins])
+
+
 const inputHandler =(event)=>{
   setInput(event.target.value)
   if(event.target.value ===''){
@@ -31,16 +35,21 @@ const searchHandler = async(event) => {
   setDisplayCoin(coins)
 }
 
+const Spinner =()=>{
+ return( 
+   <div className="loading">
+      <InfinitySpin  visible={true} width="200" color="#4fa94d" ariaLabel="infinity-spin-loading"/>
+  </div>
+)}
+
   return (
     <div className='home'>
-
           <div className="hero">
               <h1>Largest <br/> Crypto Marketplace</h1>
               <p>Welcome to worlds largest cryptocurrency market. Sign up to explore more about cryptos</p>
 
-              <form onSubmit={searchHandler}>
-
-                  <input type="text" onChange={inputHandler} value={input} list='coinlist'
+             <form onSubmit={searchHandler}>
+                   <input type="text" onChange={inputHandler} value={input} list='coinlist'
                   placeholder='Search Crypto...' required />
                   <button type="submit">Search</button>
                   <datalist id='coinlist'>
@@ -52,7 +61,11 @@ const searchHandler = async(event) => {
 
           </div>
 
-          <div className="crypto-table">
+          {
+            loading?(
+              <Spinner/>
+            ):(
+              <div className="crypto-table">
               <div className="table-layout">
                 <p>#</p>
                 <p>Price</p>
@@ -80,6 +93,9 @@ const searchHandler = async(event) => {
                 ) )
               }
           </div>
+            )
+          }
+
     </div>
   )
 }
