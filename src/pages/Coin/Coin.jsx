@@ -1,10 +1,14 @@
 import React from 'react'
 import './Coin.css'
+import { useParams } from 'react-router-dom'
 
 const Coin = () => {
+const coinId = useParams();
+
   return (
     <div className='coin'>
-        COIN
+        {/* COIN : {coinId} */}
+        COIN: {coinId} {/* Display the specific coinId */}
     </div>
   )
 }

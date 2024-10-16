@@ -77,6 +77,7 @@ const Spinner =()=>{
                 displayCoin.filter((item)=>{
                   return item.name.toLowerCase().includes(input.toLowerCase())
                 }).slice(0,10).map((item )=>(
+                  
                   <Link to={`/coin/${item.id}`} className="table-layout" key={item.id}>
 
                     <p>{item.market_cap_rank}</p>
